@@ -1,0 +1,3 @@
+npm i tailwindcss postcss autoprefixer
+configure tailwind.config.js content[]
+import compiled tailwind file into main.jsx
