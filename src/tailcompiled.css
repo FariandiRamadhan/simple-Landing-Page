@@ -554,9 +554,9 @@ video {
   --tw-contain-style:  ;
 }
 
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-yellow-400 {
