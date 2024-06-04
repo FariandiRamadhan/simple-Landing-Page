@@ -1,12 +1,11 @@
 export default function Navbar(){
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-10 flex flex-col bg-slate-600/65 text-white">
-            <div className="relative flex items-center h-20 px-8 gap-2">
-                <div className="flex-grow text-4xl font-bold -translate-y-1 hover:cursor-default">Logo</div>
-                <div className="flex items-center leading-10">
-                    <a href="lama" className="nav-item">Overview</a>
-                    <a href="accesories" className="nav-item">Accesories</a>
-                    <a href="support" className="nav-item">Support</a>
+    return (<nav className="fixed top-0 left-0 right-0 text-white z-10 flex flex-col bg-slate-600/65">
+            <div className="relative overflow-hidden flex items-center px-8 flex-wrap min-[240px]:h-16 gap-2 min-[1024px]:h-28 min-[1300px]:h-20" >
+                <div className="flex-grow text-4xl font-bold text-purple-500 hover:cursor-default">LOGO</div>
+                <div className="hidden text-white px-4 md:inline min-[1024px]:text-2xl min-[1300px]:text-sm">
+                    <a href="#hr" className="nav-item">Overview</a>
+                    <a href="#hr" className="nav-item">Accessories</a>
+                    <a href="#hr" className="nav-item">Support</a>
                 </div>
                 <a href="#hr" className="px-2 py-2 bg-cyan-400 rounded-lg hover:bg-cyan-500 font-semibold min-[1024px]:text-2xl min-[1300px]:text-sm">Order Now</a>
                 <button className="hover:bg-slate-500 w-10 h-10 flex justify-center items-center md:hidden" onClick={myFunction} id="hamburg">
@@ -18,8 +17,7 @@ export default function Navbar(){
                 <a href="#hr" className="drop-nav-item">Accessories</a>
                 <a href="#hr" className="drop-nav-item">Support</a>
             </div>
-        </nav>
-    )
+    </nav>)
 }
 
 function myFunction(){
