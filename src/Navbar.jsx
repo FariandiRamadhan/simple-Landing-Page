@@ -3,7 +3,7 @@ export default function Navbar(){
             <div className="relative overflow-hidden flex items-center px-8 flex-wrap min-[240px]:h-16 gap-2 min-[1024px]:h-28 min-[1300px]:h-20" >
                 <div className="flex-grow text-4xl font-bold text-purple-500 hover:cursor-default">LOGO</div>
                 <div className="hidden text-white px-4 md:inline min-[1024px]:text-2xl min-[1300px]:text-sm">
-                    <a href="#hr" className="nav-item">Overview</a>
+                    <a href="#overview" className="nav-item">Overview</a>
                     <a href="#hr" className="nav-item">Accessories</a>
                     <a href="#hr" className="nav-item">Support</a>
                 </div>
