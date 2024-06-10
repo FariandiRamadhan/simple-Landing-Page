@@ -34,7 +34,7 @@ const icon = [
     ]
 ];
 const optClassDiv = [
-    "text-lg lg:text-xl grid max-[640px]:grid-cols-[1fr_10fr] lg:grid-cols-[10fr_1fr] items-center",
+    "text-lg lg:text-xl grid grid-cols-[1fr_10fr] lg:grid-cols-[10fr_1fr] items-center",
     "text-lg lg:text-xl grid grid-cols-[1fr_10fr] items-center"
 ];
 
@@ -45,13 +45,13 @@ export default function Card({align, template, title, image, sequent}){
 return(
     <div className="grid min-[240px]:grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-8 opacity-0 card">
         <div className={"cardtext " + align_opt}>
-            <h3 className="text-xl font-bold lg:text-2xl mb-4 drop-shadow shadow-slate-600">{title}</h3>
+            <h3 className="text-xl font-bold lg:text-2xl mb-2 drop-shadow shadow-slate-600">{title}</h3>
             <div className={optClassDiv[sequent]}>
                 {icon[sequent].map((ie,innerIndex)=>{
                     counter += 1;
                     return(<>
-                        <i className={sequent == 0?`fa-solid ${ie} col-start-2 col-end-2`:`fa-solid ${icon[sequent][innerIndex]}`} key={new Date().getTime()}></i>
-                        <p className={sequent == 0?`row-start-${counter} col-start-1`:""} key={counter}>{objectDatas[sequent][innerIndex]}</p>
+                        <i className={sequent == 0?`fa-solid ${ie} col-start-1 lg:col-start-2 lg:col-end-2`:`fa-solid ${icon[sequent][innerIndex]}`} key={new Date().getTime()}></i>
+                        <p className={sequent == 0?`row-start-${counter} col-start-2 lg:col-start-1`:""} key={counter}>{objectDatas[sequent][innerIndex]}</p>
                         </>)
                 })}
             </div>
@@ -61,6 +61,7 @@ return(
 )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function cardEffect(entries){
     entries.forEach((entry) => {
       // console.log(entry.target)
@@ -68,12 +69,12 @@ export function cardEffect(entries){
           entry.target.classList.replace("opacity-0","opacity-100");
           entry.target.classList.add("origin-bottom");
           entry.target.classList.add("transition-opacity");
-          entry.target.classList.add("duration-500");
+          entry.target.classList.add("duration-200");
       }else{
           entry.target.classList.replace("opacity-100","opacity-0");
           entry.target.classList.remove("origin-bottom");
           entry.target.classList.remove("transition-opacity");
-          entry.target.classList.remove("duration-500");
+          entry.target.classList.remove("duration-200");
       }
         
     });

@@ -45,7 +45,7 @@ export default function LandingPage(){
             </article>
             <img src="./clement-helardot.jpg" alt="bgimage" className=" mx-auto opacity-90"/>
             <section className="px-10 py-12 bg-gradient-to-r from-gray-100/95 to-neutral-500/90 grid lg:grid-cols-2 md:gap-x-8 lg:px-32 bottom-section opacity-0">
-                <h2 className="text-2xl font-bold max-md:mb-6">Performance and Efficiency{window.screen.width} {window.screen.height}</h2>
+                <h2 className="text-2xl font-bold max-md:mb-6">Performance and Efficiency</h2>
                 <h3 className="text-lg  font-semibold after:content-['*'] after:text-blue-700">Specs</h3>
                 <table className="table-auto lg:row-start-3 lg:row-span-4 transition-transform max-md:mb-6">
                     <tbody className="divide-y-2 divide-slate-500">
@@ -88,8 +88,8 @@ export default function LandingPage(){
                     waterproved design, impact resistance makes you able to work from anywhere and anytime
                 </p>
                 <figure className="grid place-items-center text-white" style={{gridTemplateAreas:"ini"}}>
-                    <i className="z-10 fa-regular fa-circle text-6xl"  style={{gridArea:"ini"}}></i>
-                    <i className="z-10 fa-solid fa-play text-4xl"  style={{gridArea:"ini"}}></i>
+                    <i className="z-[2] fa-regular fa-circle text-6xl"  style={{gridArea:"ini"}}></i>
+                    <i className="z-[2] fa-solid fa-play text-4xl"  style={{gridArea:"ini"}}></i>
                     <img src="./ales-nesetril.jpg"alt="aside_image" className="z-0 w-full shadow-lg shadow-slate-800 aspect-video" style={{gridArea:"ini"}}/>
                 </figure>
             </section>
