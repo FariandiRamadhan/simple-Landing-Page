@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import Navbar from "./Navbar";
 import Header from "./Header";
-import Card, {cardEffect} from "./Card";
+import Card from "./Card";
+import cardEffect from "./CardEffect";
 import Footer from "./Footer";
 import LaptopColorSelection, { TagBrand } from "./SmallSections";
 
@@ -11,10 +12,10 @@ export default function LandingPage(){
         rootMargin: "50px",
         threshold: [0.18,0.5,1.0],
     };
-    function observerObj(mycallback){
+    const observerObj = useCallback((mycallback) =>{
         const observer = new IntersectionObserver(mycallback, options);
         return observer;
-    }
+    },[])
 
     useEffect(() => {
         const parent = document.getElementsByClassName("card");

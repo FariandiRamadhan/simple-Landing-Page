@@ -7,12 +7,51 @@
         @apply py-4 px-2 mx-2 font-semibold;
     }
     .nav-item:hover{
+        color: yellow;
         text-shadow: 2px 2px black;
     }
     .drop-nav-item{
         @apply block hover:bg-slate-600/80 p-2
     }
     .picture-conf{
-        @apply rounded-lg aspect-square
+        @apply rounded-lg aspect-square;
+    }
+    .slider *{
+        @apply p-0 m-0 box-border;
+    }
+    
+    .slider{
+        @apply w-full overflow-hidden;
+        mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+    }
+    
+    .slider .list{
+        @apply flex relative w-full;
+        height: var(--height);
+        min-width: calc(var(--width) * var(--quantity));
+    }
+    .slider:hover .item{
+        animation-play-state: paused!important;
+        filter: grayscale(1);
+    }
+    .slider .item:hover{
+        filter: grayscale(0);
+    }
+    .slider .item{
+        @apply absolute left-full;
+        width: var(--width); 
+        height: var(--height);
+        animation: autoRun 10s linear infinite;
+        animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1));
+    }
+    .slider .list .item img{
+        @apply w-full h-full;
+    }
+    @keyframes autoRun{
+        from{
+            left: 100%;
+        }to{
+            left: calc(var(--width) * -1);
+        }
     }
 }
