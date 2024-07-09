@@ -1,7 +1,13 @@
-import { useCallback } from "react";
+import PropTypes from 'prop-types';
+import { useCallback} from "react";
+Navbar.propTypes = {
+    handleOrder:PropTypes.func
+}
 
-export default function Navbar(){
+export default function Navbar({handleOrder}){
+    console.log("navbar renderred");
     const handleClick = useCallback(()=>{
+        console.log("handleClick renderred");
         const icon = document.getElementById('icon');
         const icon_tol = document.getElementById('links');
         icon_tol.classList.toggle("block");
@@ -10,10 +16,10 @@ export default function Navbar(){
         if (icon_tol.classList.contains("hidden")) {
             icon_tol.classList.remove("hidden");
             icon.classList.remove("fa", "fa-bars");
-          } else {
+        } else {
             icon_tol.classList.add("hidden");
             icon.classList.add("fa", "fa-bars");
-          }
+        }
     },[])
     return (<nav className="fixed top-0 left-0 right-0 text-white z-10 flex flex-col bg-slate-600/65">
             <div className="relative overflow-hidden flex items-center px-8 flex-wrap min-[240px]:h-16 gap-2 min-[1024px]:h-28 min-[1300px]:h-20" >
@@ -23,7 +29,7 @@ export default function Navbar(){
                     <a href="#hr" className="nav-item">Accessories</a>
                     <a href="#hr" className="nav-item">Support</a>
                 </div>
-                <a href="#hr" className="px-2 py-2 bg-cyan-400 rounded-lg hover:bg-cyan-500 font-semibold min-[1024px]:text-2xl min-[1300px]:text-sm">Order Now</a>
+                <a href="#hr" className="px-2 py-2 bg-cyan-400 rounded-lg hover:bg-cyan-500 font-semibold min-[1024px]:text-2xl min-[1300px]:text-sm" onClick={(e) => {e.preventDefault;handleOrder(true)}}>Order Now</a>
                 <button className="hover:bg-slate-500 w-10 h-10 flex justify-center items-center md:hidden" onClick={handleClick} id="hamburg">
                     <i className="fa fa-bars" id="icon"></i>
                 </button>

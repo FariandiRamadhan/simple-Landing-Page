@@ -1,22 +1,16 @@
 import { useEffect, useCallback } from "react";
-import Navbar from "./Navbar";
-import Header from "./Header";
-import Card from "./Card";
-import cardEffect from "./CardEffect";
-import Footer from "./Footer";
-import LaptopColorSelection, { TagBrand } from "./SmallSections";
+import HeaderNavbarWrapper from "./components/HeaderNavbarWrapper";
+import Card from "./components/Card";
+import cardEffect from "./data_and_functions/CardEffect";
+import LaptopColorSelection, { TagBrand } from "./components/SmallSections";
+import Footer from "./components/Footer";
+import { intersectOptions, tableValues } from "./data_and_functions/allDatas";
 
 export default function LandingPage(){
-    let options = {
-        // root: document.querySelector("header"),
-        rootMargin: "50px",
-        threshold: [0.18,0.5,1.0],
-    };
     const observerObj = useCallback((mycallback) =>{
-        const observer = new IntersectionObserver(mycallback, options);
+        const observer = new IntersectionObserver(mycallback, intersectOptions);
         return observer;
     },[])
-
     useEffect(() => {
         const parent = document.getElementsByClassName("card");
         const parentBottomSection = document.getElementsByClassName("bottom-section")[0];
@@ -26,7 +20,7 @@ export default function LandingPage(){
             observer.observe(parent[index]);
         }
         observer.observe(parentBottomSection);
-    });
+    },[observerObj]);
 
     return(
         <>
@@ -35,8 +29,7 @@ export default function LandingPage(){
         {/* https://unsplash.com/@clemhlrdt */}
         {/* https://unsplash.com/@alesnesetril */}
         {/* https://frepik.com */}
-        <Navbar/>
-        <Header/>
+        <HeaderNavbarWrapper/>
         <main className=" bg-gray-300">
             <article className="grid grid-cols-1 gap-8 bg-gradient-to-r from-gray-100/95 to-neutral-500/90 py-8 px-10 lg:px-32" id="overview">
                 <TagBrand/>
@@ -50,38 +43,11 @@ export default function LandingPage(){
                 <h3 className="text-lg  font-semibold after:content-['*'] after:text-blue-700">Specs</h3>
                 <table className="table-auto lg:row-start-3 lg:row-span-4 transition-transform max-md:mb-6">
                     <tbody className="divide-y-2 divide-slate-500">
-                    <tr>
-                        <td className="w-36">Battery</td>
-                        <td>30WHrs,2S1P,2-cell Li-ion</td>
-                    </tr>
-                    <tr>
-                        <td>CPU</td>
-                        <td>Intei X-99</td>
-                    </tr>
-                    <tr>
-                        <td>Memory</td>
-                        <td>16 GB DDR4</td>
-                    </tr>
-                    <tr>
-                        <td>Screen Size</td>
-                        <td>14&quot;</td>
-                    </tr>
-                    <tr>
-                        <td>Screen Resolution</td>
-                        <td>1366*768 pixels</td>
-                    </tr>
-                    <tr>
-                        <td>External Memory</td>
-                        <td>512 GB SSD 2.5&quot; SATA</td>
-                    </tr>
-                    <tr>
-                        <td>Physical Size</td>
-                        <td>34.8*24.2*2.53 cm</td>
-                    </tr>
-                    <tr>
-                        <td>Weight</td>
-                        <td>2 Kg</td>
-                    </tr>
+                    {
+                        tableValues.map((current,counter)=>{
+                            return <tr key={counter}><td className="w-36">{current[0]}</td><td>{current[1]}</td></tr>
+                        })
+                    }
                     </tbody>
                 </table>
                 <p className="text-justify lg:col-start-2 lg:row-start-1 lg:row-span-4 mb-6">
